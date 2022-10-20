@@ -1,0 +1,859 @@
+Title of submission to PLOS journal (Manuscript Marine fuels\_\_WORCS)
+================
+truetrue
+
+    ## Warning: package 'worcs' was built under R version 4.1.3
+
+This manuscript uses the Workflow for Open Reproducible Code in Science
+\[1\] to ensure reproducibility and transparency. All code
+<!--and data--> are available at
+<git@github.com:pasilvaortiz/WORCS.git>.
+
+This is an example of a non-essential citation \[@ 1\]. If you change
+the rendering function to `worcs::cite_essential`, it will be removed.
+
+<!--The function below inserts a notification if the manuscript is knit using synthetic data. Make sure to insert it after load_data().-->
+
+*Text based on plos sample manuscript, see
+<https://journals.plos.org/ploscompbiol/s/latex>*
+
+# Exergy efficiency of marine biofuel production from residual lignocellulosic biomass using thermochemical conversion technologies
+
+Pablo Silva Ortiz\*, Adriano Pinto Mariano, Rubens Maciel Filho
+
+School of Chemical Engineering, University of Campinas, Campinas, Brazil
+
+Laboratory of Optimization, Design and Advanced Control (LOPCA)
+
+e-mail: <pabloaso@unicamp.br>, <adpm@unicamp.br>, <rmaciel@unicamp.br>
+
+Patricia Osseweijer, John Posada
+
+Faculty of Applied Sciences, Department of Biotechnology
+
+Delft University of Technology, Delft, the Netherlands
+
+e-mail: <p.osseweijer@tudelft.nl>, <j.a.posadaduque@tudelft.nl>
+
+## ABSTRACT
+
+Current limits on the sulfur content and Greenhouse Gas (GHG) emissions
+of marine fuels are a challenge for the maritime shipping industry and
+an opportunity for alternative fuels in the transition to a low-carbon
+economy. This work presents an integrated assessment model to compare
+the exergy efficiency of marine biofuel blendstock supply chains,
+considering seven agroforestry residues feedstocks (e.g., *Eucalyptus
+Residues, Pine Residues, Corn Stover, Rice Straw, Wheat Straw, Sugarcane
+Bagasse, and Sorghum Bagasse*) and three thermochemical pathways (e.g.,
+*Hydrothermal liquefaction, HTL, Fast pyrolysis, FP, and Gasification
+with Fischer-Tropsch synthesis, GFT*). The biorefineries were modeled
+for a scale of 500 tonnes per day of biofuel production, with
+electricity and heat cogeneration. The results were used to rank the
+marine systems through a trade-off linking the exergy efficiency, the λ
+renewability performance, the Average unitary exergy cost (AUEC), and
+the irreversibilities. In particular, HTL and GFT systems have the
+highest biofuel yields. Thus, when wheat straw was used as an input in
+these configurations, they presented the highest exergetic efficiency
+and, consequently, the lowest destructed exergy rate and AUEC of the
+feedstock-technology combinations.
+
+## KEYWORDS
+
+Exergy analysis, Marine fuel, Lignocellulosic feedstock, Thermochemical
+conversion technologies
+
+## INTRODUCTION
+
+According to the International Maritime Organization (IMO), a
+restriction of the maximum sulfur content (from 3.5 wt% to 0.5 wt%,
+percent weight) in marine fuel will be achieved from 2020 to 2025. The
+IMO also estimated a 40% carbon intensity reduction of shipping,
+relative to 2008 levels, by 2030 and 70% by 2050. Furthermore, IMO
+regulations on energy efficiency support the demand for greener and
+cleaner shipping focus on emits less air pollution (reducing greenhouse
+gas emissions, GHG) due to increasingly becoming energy-efficient
+systems \[1\]. Hence, it is expected to consolidate a sustainable way to
+transport commodities and goods.
+
+Almost all large ships use residual fuels called heavy fuel oil (HFO) as
+their primary fuel. Distillate fuels such as marine diesel oil (MDO) and
+marine gasoil (MGO) are used by small ships and in some auxiliary
+engines on board ships. A small number of ships are using LNG as their
+primary fuel \[2\]. For instance, the global demand for marine fuel is
+mainly met by fuel oil (76%), while gasoil only represents 24% of the
+market in 2017, equivalent to 271,414 thousand tonnes \[3\]. This sector
+consumes more than 330 million tonnes of fuel a year and accounts for
+more than 900 million tonnes of the global CO2 (2-3%), SOx (4-9%), and
+NOx emissions (10-15%) \[4\]. In this context, the marine industry faces
+several challenges related to emission regulations and energy efficiency
+targets. Therefore, a new area of research is identifying an alternative
+to marine residual fuels. This reality has expanded interest in
+alternative fuel options, such as liquid natural gas and advanced
+biofuels. For example, the potential for blends, especially bio-oil and
+bio-crude, are promising scenarios, where requirements for cetane
+number, oxygen, aromaticity, and other properties are much less rigorous
+than conventional marine fuels. Thus, when blended with HFO, biofuels
+offer potential synergistic advantages by reducing sulfur content,
+improving overall lubricity, and lower ash and emission profiles,
+notably for particular matters and SOx. As renewable fuels, they also
+offer the potential to reduce life-cycle CO2 for marine operations
+\[5\].
+
+The viability of a lignocellulosic marine biofuel relies on the
+characteristics and availability of the biomass feedstock, as well as
+the performance of the raw material in the specific biofuel conversion
+process. Research on drop-in marine biofuels has primarily centered on
+blending with traditional marine diesel \[6\] and marine engine testing
+\[7\] or overall comparisons taking into account the entire supply chain
+from field to ship \[4\]. In particular, a comparison of many
+lignocellulosic marine biofuel options for use as drop-in blendstock
+with marine HFO \[8\]. The referred study conducted a systematic
+screening of the possible economic and environmental performance of 33
+supply chains producing lignocellulosic biofuels. In recent years,
+several authors have studied the potential of improving the efficiency
+of a ship and marine fuel system (by recovering the waste heat from the
+diesel engines or maximizing the power output of the configuration).
+
+More specifically, Koroglu and Sogut \[9\] carried out a conventional
+and advanced exergy analysis that is applied to a marine steam power
+plant. The results showed that the highest exergy destruction is within
+the boiler due to chemical reactions. Yao et al. \[10\] assessed marine
+high-powered, medium-speed diesel engines using energy balance and
+exergy analysis. The authors found that about 25% of the total energy is
+lost through exhaust heat and 36% during the combustion process. In the
+case of cruise ships, Baldi et al. \[11\] attempted to optimize the load
+allocation among the different engines of the same case study, including
+considerations related to the efficiency of the heat generation on
+board.
+
+However, the complexity of the maritime shipping sector offers an
+opportunity from an energy systems perspective to identify potential
+areas for improvement, as well as to categorize the minimization of
+irreversibilities sources. It has become crucial to estimate an
+optimized design of the most promising system to deliver its fair share
+of the global decarbonisation challenge. Hence, having a feedstock
+availability and consistent processing technologies to produce
+competitive biofuels at a large scale are key factors to promote most of
+the abatement of emissions required to achieve the IMO strategies. In
+fact, marine shipping industry is a relatively low-energy mode of
+long-distance transportation that should continue improving its energy
+efficiency and cost-competitiveness to consolidate the operation into a
+competitive market with options such as aviation and road transport.
+
+In this work, the potential of biofuels and marine blends was assessed
+from the exergetic point of view. The analysis covers seven agroforestry
+residues used as raw material and their conversion through three
+thermochemical biofuel production routes, namely hydrothermal
+liquefaction with hydrodeoxygenation (HTL), fast pyrolysis with
+hydrodeoxygenation (FPH), and gasification with Fischer-Tropsch
+synthesis (GFT). Thus, a technical performance assessment of the
+lignocellulosic marine biofuel framework using the exergy principles as
+indicators was carried out, which could be relevant and support the
+decision-making process regarding further research on low-carbon
+footprint, low-sulfur marine biofuels in a competitive market promoting
+the use of renewables in the shipping sector.
+
+## MATERIALS AND METHODS
+
+## Feedstocks and Process options
+
+First, raw materials were chosen based on projected availability. Next
+for the selected feedstock and biofuel production technology, process
+models were developed. The models were designed with a parallel data
+structure to ensure that each feedstock/technology scenario (21 pairs)
+used a standardized set of parameters and permitted an exergy-based
+comparison.
+
+Brazil was selected as a reference because of its competitiveness in
+agribusiness and its experience in biofuels production, these facts and
+particularities situated the country in a key position in the biofuel
+market. Brazil is one of the fastest-growing economies in Latin America
+and renewable energy sources are strategic into the Brazilian energy
+matrix. For instance, the electrical matrix of predominantly renewable
+origin, with emphasis on the hydropower plants that accounts for 64.9%
+of the domestic energy supply in 2019. Renewable sources account for
+83.0% of the domestic supply of electricity, which is the result of the
+sum of the amounts referring to domestic production plus imports (Wind,
+Biomass, and Solar resources) in Brazil, which are basically of
+renewable origin \[12\]. Hence, this paper is focused on biomass from
+the agricultural origin, given the Brazilian land resources and its
+agricultural and forestry residues to explore the potential feedstock
+for renewable marine fuels.
+
+The most promising potential raw materials for the initial development
+of marine fuels in Brazil are plants that contain sugars and starches
+but materials such as plant oils, lignocellulose, and industrial waste
+residues can be considered for the longer-term feedstocks. This is an
+important factor since the choice of feedstock takes into account its
+biomass production cost (usually represent 70%) or more of the overall
+biofuel price \[13\]. Thus, Table 1 presents the current status and
+prospects feedstock given in tropical climate for the maritime industry
+are studied looking for business opportunities in this sector.
+
+Three thermochemical biofuel pathways that are near-term candidates for
+large-scale commercial production were analyzed (*e.g.,* Hydrothermal
+Liquefaction-HTL, Fast Pyrolysis-FP, and Gasification with
+Fischer-Tropsch synthesis GFT). Both HTL and FP are in early
+commercialization, with 25-80 million liters of biofuel annually
+produced from wood feedstock by demonstration plants \[14–16\]. HTL
+technology via Hydrodeoxygenation of biofuels has been demonstrated on a
+pilot scale but has not yet been commercialized. In contrast, GFT has
+been operating commercially since 1930 using coal and natural gas, and
+the Sasol plants represent the world’s most significant cases of
+commercialized FT synthesis. The two plants have a total output of
+approximately 150,000 barrels per day (bpd) and contain 80 Sasol-Lurgi
+Fixed Bed Dry Bottom (FBDB) gasifiers \[17\].
+
+Each feedstock-technology set was modeled using biofuel yields from
+experimental literature, and the processes were adjusted to produce fuel
+compatible with marine engines. Exergy efficiencies and irreversibility
+rates were then assessed for a biorefinery case study operating in
+Brazil, modeled to process 500 dry tonnes of biomass per day, which
+represents a consistent scale with biorefineries currently planned or in
+operation; for example, FP plants projected in Finland \[18\] and the
+Netherlands \[16\], and UPM’s HTL plant in Finland \[19\].
+
+Additionally,the impact of the biofuel conversion technology was
+considered for each thermochemical pathway. The biofuels were assumed to
+be destined for marine fuel blendstock, and therefore the processes were
+adjusted to generate undistilled biocrude. Theoretically, the biocrudes
+could be blended directly into marine fuels, in proportions of up to
+30%, as shown by previous tests for HTL \[20\] and GFT \[7\] biofuels.
+
+## Process Simulation
+
+This section offers a brief description of the selected conversion
+technologies, namely, hydrothermal liquefaction with hydrodeoxygenation
+(HTL), fast pyrolysis with hydrodeoxygenation (FPH), and gasification
+with Fischer-Tropsch synthesis (GFT). In general, these types of
+thermochemical conversion processes offer advantages in terms of the
+biomass recalcitrance for biofuel production when compared with
+biological routes. Fig. 1 shows the system’s boundary adopted in the
+assessment of the thermochemical pathways.
+
+## Hydrothermal liquefaction (HTL)
+
+HTL technology converts biomass into crude-like bio-oil using moderate
+temperature and high pressure \[4\]. In the HTL model, the prepared
+biomass material was saturated with water heated to 300°C, pressurized
+to subcritical conditions, and reacted for 10-60 minutes, decomposing
+into oil, aqueous, char, and gas fractions (Fig. 2) \[21\]. Table 2
+gives the details related to the reactor conditions and yields selected.
+Furthermore, it was assumed that 80% of the aqueous fraction to be
+recycled back into the hot water injection process in order to replace
+freshwater. Next, the unreacted organics in the recycled aqueous feed
+were supposed to decompose partially into oil and char \[22\]. Besides,
+it was adopted a conservative conversion rate of 5-10% related to
+biofuel-from-aqueous, proportional to fresh-feed yields.
+
+In the HTL model, solid biomass liquefaction in water was considered
+without the addition of pre-processing or solvents. Therefore, the
+reactor output was separated from the char and conducted to the
+cogeneration plant (COGEN). Off-gases were addressed to the hydrogen
+(H2) production plant with additional feedstock demand satisfied by
+natural gas, whereas excess off-gases were passing through to the COGEN
+plant. HTL biocrude derived from lignocellulosic materials is
+theoretically an acceptable direct substitute for heavy fuel oil
+\[29,30\] and directly usable blended with fossil fuel sources in marine
+engines \[7\]. Hydrotreatment is expected to increase the HTL biofuel
+quality by decreasing its sulfur, nitrogen, and oxygen fractions, and
+increasing its energy content to a comparable amount of biocrude FPH and
+GFT \[8\].
+
+## Gasification with Fischer-Tropsch synthesis (GFT)
+
+In the GFT system (Fig. 3), the raw material is gasified/converted into
+synthesis gas (syngas) rich in hydrogen (H2) and carbon monoxide (CO),
+cleaned catalytically (remove sod and tar), condensed into a high purity
+liquid hydrocarbon such as synthetic diesel, biokerosene, and marine
+biofuel \[31\]. In this model, the prepared biomass was pressurized with
+CO2 and gasified in a steam-oxygen environment at 700-830°C, at ratios
+of 4:1 dry biomass to O2 and 3:2 O2 to steam mass. Table 3 presents the
+gas yields used in the simulation.
+
+The synthesis gas was cleaned to eliminate solids, tar, ammonia, CO2,
+and sulfur by a water quench, filters, and monoethanolamine (MEA) based
+acid gas removal. The removed CO2 was recycled for lock-hopper
+pressurization. A syngas methane content of 1.5% was assumed using steam
+methane reforming (SMR) and, if required, a water gas shift (WGS)
+improved the H2:CO ratio to at least 2.15:1. Besides, the cleaned syngas
+was modeled to be condensed in an F-T reactor at 200°C, over a Co-Al
+catalyst \[33\] with a conversion rate of 78% \[26\]. The conversion of
+H2 and CO to hydrocarbons considered the Anderson-Schulz-Flory
+distribution for cobalt catalysts \[33\]. Thus, the higher heating value
+(HHV) of the biofuels were calculated from their hydrocarbon
+distribution in all cases and obtained roughly 45 MJ/kg.
+
+## Fast pyrolysis with hydrotreatment (FPH)
+
+The fast pyrolysis process occurred in a fluidized bed reactor adopting
+the parameters and yields presented in Tab. 4. It should be noted that
+the pulverized biomass was rapidly heated at 500°C in an anaerobic
+environment. Besides, the combustion of the pyrolysis char was met
+primarily by the reactor heat demand. Later, gas output was partially
+recycled for fluidization gas (FG) with the remains used to produce the
+H2 for hydrotreatment (Fig. 4). It was also assumed that the organic
+content of the FG flow does not influence the pyrolysis yields \[26\].
+
+The pyrolysis oil obtained is characterized by high oxygen content.
+Thus, a hydrotreatment process was used to decrease it via catalytic
+reacting the oil with H2, increasing the stability and energy content of
+the final marine biofuel. Hence, the pyrolysis oil was deoxygenated in a
+hydrotreater with a 50% H2 conversion rate. Nearly half of the mass was
+recovered as biofuel, 40% lost to aqueous separation, and 10% gone to
+off-gases \[43\]. For all feedstocks, the final biofuel was assumed to
+have an energy content of 35 MJ/kg \[44\], when raw material specific
+data were unavailable.
+
+The hydrogen unreacted (85%) was recuperated by pressure swing
+absorption (PSA) and recycled. H2 was produced via steam methane
+reforming (SMR) and a water gas shift (WGS), adopting a 100% conversion
+efficiency for a 1.5:1 <steam:hydrocarbon> ratio, with an 85% recovery
+of hydrogen via PSA \[8\]. When off-gases did not cover the H2 demand,
+natural gas was used as supplementary fuel. Lastly, any excess off-gases
+were addressed for the COGEN plant.
+
+1.  ## Exergy Analysis
+
+Exergy analysis can play an essential role in identifying opportunities
+for improving efficiency at scales ranging from individual processes to
+the economy. It can also help by determining the feasibility of emerging
+technologies and identifying limits to efficiency improvement through
+
+the First and Second Law of Thermodynamics \[45\]. Exergy is defined as
+the thermodynamic property that represents the maximum work that could
+be achieved using reversible processes from a system that interacts with
+the components of the environment until the equilibrium state is reached
+\[46\].
+
+\_Exergy balance.\_The thermochemical conversion scenarios are based on
+the calculation of the steady-state mass, energy, and exergy balances
+for each one of the control volume, according to Equations (1-3). Where
+represents the exergy of the process inputs (), the exergy of the
+process output (), and the Irreversibility (exergy losses).
+
+In this work, the chemical (bCH) and physical (bPH) exergies are
+measured due to the physic-chemical processes associated to the biofuel
+marine configurations. Thus, bPH was defined by equation (4). Where *H*
+(in kW) is the enthalpy flow rate at P, T, *S* (in kW/K) represents the
+entropy rate/flow rate at P, T, \_T\_\_o\_ (in K) is the temperature at
+the reference state, \_H\_\_o\_ (in kW) depicts the enthalpy flow rate
+at Po, To and \_S\_\_o\_ (in kW/K) is the entropy rate/flow rate at
+Po,To.
+
+Conceptually, bCH quantifies the chemical substance value, as measured
+against a particular reference environment \[47\]. Equation (5) was
+adopted to define the chemical exergy of the components. Where \_n
+\_\_mix\_ is the total quantity of moles of all constituents in a
+mixture, \_x\_\_ i\_ is the mole fraction of component *i*.
+
+Besides, \_Ὑ\_\_i\_ represented the activity coefficient and the term
+denoted the standard chemical exergy. The chemical exergies for various
+compounds are given in Szargut et al. \[46\] and Kotas \[48\]. More
+specifically, the bCH considered in the exergy assessment are found in
+Tab. 5.
+
+In general, the chemical exergy for fuel stream is given in Equation
+(6).
+
+Where ɸ represents a correlation related to the bch calculations of the
+‘*nonconventional*’ components as specified in Eq. (7). This expression
+is used in terms of mass ratios for dry organic materials contained in
+solid fossil fuels consisting of carbon *c*, hydrogen *h*, oxygen *o*,
+and nitrogen *n* with a mass ratio of oxygen to carbon less than 0.667.
+The accuracy of this expression is estimated to be better than ± 1%
+\[48\].
+
+The lower heating value (LHV) can be calculated using the expression
+given in Eq. 8. LHV is more often used and corresponds to the heat (KJ
+or kWh) produced by the complete oxidation of a fuel, without water in
+the flue gas condensation.
+
+where LHV is in MJ/kg, xC is the mass fraction of carbon, xH is the mass
+fraction of hydrogen, xO is the mass fraction of oxygen, xS is the mass
+fraction of sulphur and xmoisture is the mass fraction of moisture
+related to the biomass feedstock \[49\].
+
+## Performance Assessment
+
+Exergy efficiency, Irreversibility rate, Average unitary exergy cost
+(AUEC), and Renewability exergy index (λ) were used as key performance
+indicators (KPI) in the analysis of the thermochemical conversion
+systems.
+
+*Exergy efficiency:* This indicator determinate by the ratio between the
+exergy of the outputs (Bproducts) and the exergy of the inputs
+(Bresources), as indicated in Eq. (9).
+
+*Irreversibility rate:* The irreversibility was obtained by applying the
+exergy balance expression introduced in Eq. (3).
+
+*Average unitary exergy cost (AUEC):* The AUEC is a measure of the
+exergy destruction, which occurs during the upstream processes to form a
+given exergy stream. The unit exergy cost *c* (kJ/kJ) of the marine
+biofuel and the electricity production is calculated as the inverse of
+the exergy efficiency of the marine biofuel process and cogeneration
+unit, respectively.
+
+*Renewability exergy index (λ):* λ values indicate if the net exergy of
+the products could be used to restore the environment to its conditions
+prior to the process and yet have a net output of exergy.
+
+λ term is founded on the concept of reversible processes to develop the
+renewability analysis in a rational basis by thermodynamic parameters.
+For more details and applications refer to \[51,53\].
+
+## RESULTS AND DISCUSSION
+
+To synthesize the impact of the marine biofuel yields in terms of the
+selected KIPs for assessing the thermochemical systems, the exergetic
+efficiency and destroyed exergy rate were determined for each pair of
+feedstock/technology. Thus, Fig. 5 shows the systems performance
+concerning the Hydrothermal Liquefaction route, the main findings
+related to Fast Pyrolysis technology and the principal results
+associated with the Gasification Fischer-Tropsch configuration to
+illustrate the primary outcomes of the exergetic analysis.
+
+In brief, the lower irreversibility rate was found on the wheat
+straw/HTL (25 MW), wheat straw/GFT (24 MW), and corn stover/FP (21 MW)
+feedstock/technology pairs. Consequently, these pathways presented the
+highest exergetic efficiency among the considered systems. In contrast,
+the sorghum bagasse/FP has the lowest estimated exergetic efficiency of
+all scenarios (21 pairs feedstock/technology, Fig. 5, due to the low H2
+syngas composition and attributable to losses during the syngas
+upgrading process.
+
+In light of these results, HTL and FPH pathways have a biofuel yields of
+9.5 GJ/tdb. Particularly, marine biofuels produced via HTL and FPH
+routes from forestry and grain residues have comparable biofuel yields
+per year. In contrast, GFT yields are lower approximately 6.5 GJ/tdb,
+attributable to losses during the syngas upgrading step (*e.g.,* Sorghum
+GFT achieved the lowest yield of 5 GJ/tdb), due to the low H2 syngas
+composition.
+
+Another aspect to be highlighted is that FPH technological combinations
+required supplementary fuel, natural gas, to cover 20% of the internal
+energy demand, whereas Corn HTL route also required additional energy
+related to the higher equilibrium reactor flow resulting in a system
+heating demand of 40% above the HTL mean.
+
+From the exergy analysis point of view, the assessment shows the
+potential of the biomass resources and the merit of the energy
+conversion systems and irreversibilities distribution, regardless of the
+nature of feedstocks (composition) and technologies considered. Hence,
+this practical approach was used to determine the maximum potential for
+work that can be produced from all the feedstock/technology pairs.
+
+The results based on the Second Law of Thermodynamics shows the quality
+of the energy resources in terms of substance or exergy flow to
+accurately compare energy technologies by using a methodology that
+allows calculating the technical performance, as well as for the
+associated irreversibilities of each system. Hence, this study
+demonstrated the potential of second-generation feedstock coupled with a
+thermochemical process to determine/identify promising systems that
+focus on the production of biofuels and marine blends.
+
+In addition, the exergy inputs, exergy output flows, and distribution of
+exergy destruction in the different units of the biorefinery
+configurations by processes are given in the Grassmann diagrams (Fig.
+6). Later, the technical performance trade-off by technology and
+feedstock in terms of the average unitary exergy cost (AUEC) and the
+renewability exergy index (λ) is illustrated in Fig. 7. λ renewability
+performance was ranked as environmentally favorable for most
+configurations in this study. λ index trend was to increase according to
+the use of by-products into the supply chain (levels of integration) and
+also to avoid the external consumption of natural gas in the utility
+plant.
+
+Furthermore, all the thermochemical pathways have a λ lower than 1 when
+using corn as a feedstock, indicating that these processes may not be
+considered renewable from the second law of thermodynamics point of view
+due to natural gas consumption as supplementary fuel. The same pattern
+was presented when adopted the FP system for wheat and sugarcane
+materials.
+
+Figure 7 compares the technological configurations to verify the
+relation between λ renewability performance and the AUEC of these marine
+biofuel systems. In general, process performance results show higher
+exergy efficiencies and λ indexes for Gasification Fischer-Tropsch
+systems using Rice straw, Wheat straw, Sugarcane bagasse, and Sorghum
+bagasse as feedstock. In contrast, the AUEC parameter for these
+processes presents a reduction as a consequence of the irreversibility
+minimization.
+
+At this point, it is important to mention that a key factor regarding
+the availability of feedstock for marine biofuel production is the
+capacity of the feedstock to comply with sustainability requirements. In
+this case, low-carbon marine fuels were assessed through the λ indexes
+focus on the industrial processes stage and emissions associated with
+land-use change or aspects related to impact on food prices and food
+security in the case of the AUEC term are not included in the scope of
+the study.
+
+## CONCLUSION
+
+This study used an integrated model to estimate the technical
+performance of marine biofuel supply chains through a trade-off linking
+the exergy efficiency and the thermodynamic losses. A comparison of
+lignocellulosic marine biofuels based on thermochemical production
+pathways and agroforestry raw materials was carried out.These results
+highlight the synergies between process efficiency and exergy-based
+indexes, indicating low-emissions alternative fuels for the maritime
+sector that could be implemented in national decarbonization strategies.
+
+In general, a significant quantity of sustainable biomass could be
+produced in Brazil, which could represent advantages in the production
+of low-emissions alternative fuels for the maritime transportation
+sector taking into account the market potential for biofuels,
+particularly biofuel blends at the current volumes demanded by the
+shipping industry and new regulatory fuels requirements.
+
+In particular, Hydrothermal liquefaction (HTL) and Gasification with
+Fischer-Tropsch synthesis (GFT) technologies have the highest biofuel
+yields. For instance, when used wheat straw as an input in the HTL and
+the GFT systems, it was presented the highest exergetic efficiency and,
+consequently, the lowest destructed exergy rate of the configurations.
+
+Concerning the Fast pyrolysis with hydrotreatment (FPH), the highest
+exergy performance was reached when corn stover was employed as a
+feedstock. In contrast, the sorghum GFT has the lowest estimated
+exergetic efficiency due to the low-hydrogen syngas composition and
+attributable to irreversibilities during the synthesis gas upgrading
+step.
+
+Overall, the most significant recommendation from the exergy point of
+view is that the Wheat Straw/HTL, Wheat Straw/GFT, and Corn Stover/FPH
+pairs (within 21 feedstock/technology scenarios) were identified as the
+promising systems. Thus, these possible pathways could support the
+transition (medium-term targets) of the marine transport sector towards
+higher energy efficiency/low-carbon systems that focus on the production
+of biofuels (from sustainable feedstocks) and marine blends/renewable
+bunker fuels.
+
+## ACKNOWLEDGMENT
+
+The authors acknowledge the São Paulo Research Foundation (FAPESP) for
+grants 2017/03091-8 and 2017/16106-3. Besides, this work was carried out
+within the framework of a FAPESP-BIOEN thematic research project,
+process 2015/20630-4. Lastly, We also thank Samantha E. Tanzer (TU
+Delft) for providing the mass balances used in this work.
+
+## NOMENCLATURE
+
+Barrels per day (bpd)
+
+Dry tones of lignocellulosic biomass (tdb)
+
+Cogeneration plant (COGEN)
+
+Hydrothermal liquefaction with hydrodeoxygenation (HTL)
+
+Fast pyrolysis with hydrodeoxygenation (FPH)
+
+Gasification with Fischer-Tropsch synthesis (GFT)
+
+Monoethanolamine (MEA)
+
+Steam methane reforming (SMR)
+
+Water gas shift (WGS)
+
+## List of Tables
+
+Table 1. Agroforestry residues feedstocks composition
+
+Table 2. Reactor conditions, yields, and heating values adopted in the
+HTL system
+
+Table 3. GFT conditions, yields, and heating values of reaction products
+
+Table 4. Fast pyrolysis parameters
+
+Table 5. Chemical exergies for several components
+
+A list
+
+- Item 1
+- Item 2
+
+Here are two sample references: \[2,3\].
+
+# References
+
+\[1\] International Maritime Organization (IMO), Sulphur 2020 – cutting
+sulphur oxide emissions., 2020.
+<http://www.imo.org/en/MediaCentre/HotTopics/Pages/Sulphur-2020.aspx>
+(accessed February 2, 2020).
+
+\[2\] Concawe, Marine fuel facts, Concawe, n.d.
+<https://www.concawe.eu/> (accessed March 3, 2020).
+
+\[3\] FuelsEurope, STATISTICAL REPORT 2018, FuelsEurope, Belgium, 2018.
+<https://www.fuelseurope.eu/> (accessed October 1, 2020).
+
+\[4\] C. Hsieh, C. Felby, Biofuels for the marine shipping sector. An
+overview and analysis of sector infrastructure, fuel technologies and
+regulations., International Energy Agency (IEA), Copenhagen, Denmark,
+2017.
+<https://task39.sites.olt.ubc.ca/files/2013/05/Marine-biofuel-report-final-Oct-2017.pdf>
+(accessed May 3, 2020).
+
+\[5\] Oak Ridge National Laboratory (ORNL), Understanding the
+Opportunities of Biofuels for Marine Shipping, Oak Ridge National
+Laboratory (ORNL), United States, 2018.
+<https://info.ornl.gov/sites/publications/Files/Pub120597.pdf> (accessed
+March 15, 2020).
+
+\[6\] J. Fu, S.Q. Turn, Characteristics and stability of biofuels used
+as drop-in replacement for NATO marine diesel, Fuel. 236 (2019) 516–524.
+<https://doi.org/10.1016/j.fuel.2018.09.042>.
+
+\[7\] M.N. Nabi, J.E. Hustad, Investigation of engine performance and
+emissions of a diesel engine with a blend of marine gas oil and
+synthetic diesel fuel, Environmental Technology. 33 (2012) 9–15.
+<https://doi.org/10.1080/09593330.2010.483599>.
+
+\[8\] S.E. Tanzer, J. Posada, S. Geraedts, A. Ramírez, Lignocellulosic
+marine biofuel: Technoeconomic and environmental assessment for
+production in Brazil and Sweden, Journal of Cleaner Production. 239
+(2019) 117845. <https://doi.org/10.1016/j.jclepro.2019.117845>.
+
+\[9\] T. Koroglu, O.S. Sogut, Conventional and advanced exergy analyses
+of a marine steam power plant, Energy. 163 (2018) 392–403.
+<https://doi.org/10.1016/j.energy.2018.08.119>.
+
+\[10\] Z.-M. Yao, Z.-Q. Qian, R. Li, E. Hu, Energy efficiency analysis
+of marine high-powered medium-speed diesel engine base on energy balance
+and exergy, Energy. 176 (2019) 991–1006.
+<https://doi.org/10.1016/j.energy.2019.04.027>.
+
+\[11\] F. Baldi, F. Ahlgren, T.-V. Nguyen, M. Thern, K. Andersson,
+Energy and Exergy Analysis of a Cruise Ship, Energies. 11 (2018) 2508.
+<https://doi.org/10.3390/en11102508>.
+
+\[12\] EPE, Brazilian Energy Research Company, (2019).
+<http://www.epe.gov.br> (accessed November 1, 2019).
+
+\[13\] P.A. Silva Ortiz, F. Maréchal, S. de Oliveira Junior, Exergy
+assessment and techno-economic optimization of bioethanol production
+routes, Fuel. 279 (2020) 118327.
+<https://doi.org/10.1016/j.fuel.2020.118327>.
+
+\[14\] Licella Holdings, Pulp and paper. Creating renewable crude at a
+comparable price to conventional crude., (2020).
+<https://www.licella.com.au/pulp-paper/> (accessed March 1, 2020).
+
+\[15\] Valmet, Bio-oil, (2020).
+<https://www.valmet.com/more-industries/bio/bio-oil/> (accessed October
+1, 2020).
+
+\[16\] BTG-BTL, Empyro project, (2020).
+<https://www.btg-btl.com/en/company/projects/empyro> (accessed March 20,
+2020).
+
+\[17\] The National Energy Technology Laboratory (NETL), Commercial Use
+of Fischer-Tropsch Synthesis, (n.d.).
+<https://www.netl.doe.gov/research/Coal/energy-systems/gasification/gasifipedia/sasol>
+(accessed February 16, 2020).
+
+\[18\] Fortum, First industrial-scale integrated bio-oil plant, (2012).
+<https://www.fortum.com/media/2012/03/fortum-invests-eur-20-million-build-worlds-first-industrial-scale-integrated-bio-oil-plant>
+(accessed June 11, 2019).
+
+\[19\] ETIP Bioenergy, UPM Biofuels – commercial plant in Lappeenranta,
+Finland, European Technology and Innovation Platform Bioenergy. (2016).
+<a href="http://www.etipbioenergy.eu/images/Factsheet_UPM_final.pdf"
+class="uri">http://www.etipbioenergy.eu/images/Factsheet\_UPM\_final.pdf</a>.
+
+\[20\] M.N. Nabi, M.M. Rahman, M.A. Islam, F.M. Hossain, P. Brooks, W.N.
+Rowlands, J. Tulloch, Z.D. Ristovski, R.J. Brown, Fuel characterisation,
+engine performance, combustion and exhaust emissions with a new
+renewable Licella biofuel, Energy Conversion and Management. 96 (2015)
+588–598. <https://doi.org/10.1016/j.enconman.2015.02.085>.
+
+\[21\] Y. Zhang, Hydrothermal Liquefaction to Convert Biomass into Crude
+Oil, in: Biofuels from Agricultural Wastes and Byproducts, John Wiley &
+Sons, Ltd, 2010: pp. 201–232.
+<https://doi.org/10.1002/9780813822716.ch10>.
+
+\[22\] Z. Zhu, L. Rosendahl, S.S. Toor, D. Yu, G. Chen, Hydrothermal
+liquefaction of barley straw to bio-crude oil: Effects of reaction
+temperature and aqueous phase recirculation, Applied Energy. 137 (2015)
+183–192. <https://doi.org/10.1016/j.apenergy.2014.10.005>.
+
+\[23\] M. Sugano, H. Takagi, K. Hirano, K. Mashimo, Hydrothermal
+liquefaction of plantation biomass with two kinds of wastewater from
+paper industry, J Mater Sci. 43 (2008) 2476–2486.
+<https://doi.org/10.1007/s10853-007-2106-8>.
+
+\[24\] I.J. Tews, D.C. Elliott, Low-Severity Hydroprocessing to
+Stabilize Bio-oil: TechnoEconomic Assessment, Pacific Northwest National
+Lab. (PNNL), Richland, WA (United States), 2014.
+<https://doi.org/10.2172/1227072>.
+
+\[25\] E. Panisko, T. Wietsma, T. Lemmon, K. Albrecht, D. Howe,
+Characterization of the aqueous fractions from hydrotreatment and
+hydrothermal liquefaction of lignocellulosic feedstocks, Biomass and
+Bioenergy. 74 (2015) 162–171.
+<https://doi.org/10.1016/j.biombioe.2015.01.011>.
+
+\[26\] C. da Silva, Techno-Economic and Environmental Analysis of Oil
+Crop and Forestry Residues Based Integrated Biorefineries in Brazil,
+PDEng Thesis, Delft University of Technology, 2016.
+
+\[27\] Singh et al., Hydrothermal liquefaction of agricultural and
+forest biomass residue: comparative study, Springerprofessional.De.
+(2015).
+<https://www.springerprofessional.de/hydrothermal-liquefaction-of-agricultural-and-forest-biomass-res/5335084>
+(accessed April 15, 2020).
+
+\[28\] Z. Bi, J. Zhang, E. Peterson, Z. Zhu, C. Xia, Y. Liang, T.
+Wiltowski, Biocrude from pretreated sorghum bagasse through catalytic
+hydrothermal liquefaction, Fuel. 188 (2017) 112–120.
+<https://doi.org/10.1016/j.fuel.2016.10.039>.
+
+\[29\] S. Anouti, G. Haarlemmer, M. Déniel, A. Roubaud, Analysis of
+Physicochemical Properties of Bio-Oil from Hydrothermal Liquefaction of
+Blackcurrant Pomace, (2015).
+<https://doi.org/10.1021/acs.energyfuels.5b02264>.
+
+\[30\] D.C. Elliott, P. Biller, A.B. Ross, A.J. Schmidt, S.B. Jones,
+Hydrothermal liquefaction of biomass: Developments from batch to
+continuous process, Bioresource Technology. 178 (2015) 147–156.
+<https://doi.org/10.1016/j.biortech.2014.09.132>.
+
+\[31\] S.S. Gill, A. Tsolakis, K.D. Dearn, J. Rodríguez-Fernández,
+Combustion characteristics and emissions of Fischer–Tropsch diesel fuels
+in IC engines, Progress in Energy and Combustion Science. 37 (2011)
+503–523. <https://doi.org/10.1016/j.pecs.2010.09.001>.
+
+\[32\] García et al., Catalytic Steam Gasification of Pine Sawdust.
+Effect of Catalyst Weight/Biomass Flow Rate and Steam/Biomass Ratios on
+Gas Production and Composition.
+<https://pubs.acs.org/doi/10.1021/ef980250p> (accessed April 15, 2020).
+
+\[33\] R.M. Swanson, A. Platon, J.A. Satrio, R.C. Brown, D.D. Hsu,
+Techno-Economic Analysis of Biofuels Production Based on Gasification,
+National Renewable Energy Lab. (NREL), Golden, CO (United States), 2010.
+<https://doi.org/10.2172/994017>.
+
+\[34\] D.L. Carpenter, R.L. Bain, R.E. Davis, A. Dutta, C.J. Feik, K.R.
+Gaston, W. Jablonski, S.D. Phillips, M.R. Nimlos, Pilot-Scale
+Gasification of Corn Stover, Switchgrass, Wheat Straw, and Wood: 1.
+Parametric Study and Comparison with Literature, Ind. Eng. Chem. Res. 49
+(2010) 1859–1871. <https://doi.org/10.1021/ie900595m>.
+
+\[35\] J. Figueroa, Y. Ardila, R. Maciel Filho, M. Maciel, Fluidized Bed
+Reactor For Gasification Of Sugarcane Bagasse: Distribution Of Syngas,
+Bio-tar And Char, Scopus. (2014). <https://doi.org/10.3303/CET1437039>.
+
+\[36\] K.D. Panopoulos, D. Vamvuka, Experimental evaluation of
+thermochemical use of two promising biomass fuels, (2009).
+<http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.463.2597>.
+
+\[37\] S. Chang, Z. Zhao, A. Zheng, X. Li, X. Wang, Z. Huang, F. He, H.
+Li, Effect of hydrothermal pretreatment on properties of bio-oil
+produced from fast pyrolysis of eucalyptus wood in a fluidized bed
+reactor, Bioresource Technology. 138 (2013) 321–328.
+<https://doi.org/10.1016/j.biortech.2013.03.170>.
+
+\[38\] C.A. Mullen, A.A. Boateng, N.M. Goldberg, I.M. Lima, D.A. Laird,
+K.B. Hicks, Bio-oil and bio-char production from corn cobs and stover by
+fast pyrolysis, Biomass and Bioenergy. 34 (2010) 67–74.
+<https://doi.org/10.1016/j.biombioe.2009.09.012>.
+
+\[39\] S.-H. Jung, B.-S. Kang, J.-S. Kim, Production of bio-oil from
+rice straw and bamboo sawdust under various reaction conditions in a
+fast pyrolysis plant equipped with a fluidized bed and a char separation
+system, Journal of Analytical and Applied Pyrolysis. 82 (2008) 240–247.
+<https://doi.org/10.1016/j.jaap.2008.04.001>.
+
+\[40\] C.J. Mulligan, L. Strezov, V. Strezov, Thermal Decomposition of
+Wheat Straw and Mallee Residue Under Pyrolysis Conditions†, Energy and
+Fuels. (2009). <https://doi.org/10.1021/ef9004797>.
+
+\[41\] T. Hugo, Pyrolysis of Sugarcane Bagasse, Thesis (MScEng, Process
+Engineering), University of Stellenbosch, 2008.
+
+\[42\] J. Piskorz, P. Majerski, D. Radlein, D.S. Scott, A.V. Bridgwater,
+Fast pyrolysis of sweet sorghum and sweet sorghum bagasse, Journal of
+Analytical and Applied Pyrolysis. 46 (1998) 15–29.
+<https://doi.org/10.1016/S0165-2370(98)00067-9>.
+
+\[43\] P.A. Meyer, L.J. Snowden-Swan, K.G. Rappé, S.B. Jones, T.L.
+Westover, K.G. Cafferty, Field-to-Fuel Performance Testing of
+Lignocellulosic Feedstocks for Fast Pyrolysis and Upgrading:
+Techno-economic Analysis and Greenhouse Gas Life Cycle Analysis, Energy
+and Fuels. (2016). <https://doi.org/10.1021/acs.energyfuels.6b01643>.
+
+\[44\] J. Wildschut, Pyrolysis Oil Upgrading to Transportation Fuels by
+Catalytic Hydrotreatment, PhD thesis, University of Groningen, 2009.
+<https://www.rug.nl/research/portal/files/2648400/thesis.pdf>.
+
+\[45\] B. Bakshi, Sustainable Engineering, Cambridge University Press,
+2019. <https://doi.org/10.1017/9781108333726>.
+
+\[46\] J. SZARGUT, D. MORRIS, F. STEWARD, Exergy analysis of thermal,
+chemical, and metallurgical processes., Hemisphere Publishing
+Corporation, New York, 1988.
+
+\[47\] H. Marais, G. van Schoor, K.R. Uren, The merits of exergy-based
+fault detection in petrochemical processes, Journal of Process Control.
+(2017). <https://doi.org/10.1016/j.jprocont.2017.11.005>.
+
+\[48\] T.J. KOTAS, The Exergy Method of Thermal Plant Design,
+Butterworths, London-UK, 1985.
+
+\[49\] E. Silva Lora, O.J. Venturini, Biocombustíveis, 1ED., 2012.
+
+\[50\] I. Dinçer, C. Zamfirescu, Sustainable Energy Systems and
+Applications, Springer, 2011.
+<https://www.springer.com/gp/book/9780387958606>.
+
+\[51\] P. SILVA ORTIZ, R. MACIEL, J. POSADA. Mass and Heat Integration
+in Ethanol Production Mills for Enhanced Process Efficiency and
+Exergy-Based Renewability Performance, Processes. 7(10) (2019) 670.
+<https://doi.org/10.3390/pr7100670>.
+
+\[52\] K. Ptasinski, Efficiency of Biomass Energy: An Exergy Approach to
+Biofuels, Power, and Biorefineries, John Wiley & Sons, Ltd, 2016.
+<https://doi.org/10.1002/9781119118169.ch2>.
+
+\[53\] S. de Oliveira Junior, Exergy Analysis and Environmental Impact,
+in: S. de Oliveira Junior (Ed.), Exergy: Production, Cost and
+Renewability, Springer London, London, 2013: pp. 281–303.
+<a href="https://doi.org/10.1007/978-1-4471-4165-5_9"
+class="uri">https://doi.org/10.1007/978-1-4471-4165-5\_9</a>.
+
+<div id="refs" class="references csl-bib-body">
+
+<div id="ref-vanlissaWORCSWorkflowOpen2020" class="csl-entry">
+
+<span class="csl-left-margin">1. </span><span
+class="csl-right-inline">Van Lissa CJ, Brandmaier AM, Brinkman L,
+Lamprecht A-L, Peikert A, Struiksma ME, et al. WORCS: A Workflow for
+Open Reproducible Code in Science. 2020.
+doi:[10.17605/OSF.IO/ZCVBS](https://doi.org/10.17605/OSF.IO/ZCVBS)</span>
+
+</div>
+
+<div id="ref-Feynman1963118" class="csl-entry">
+
+<span class="csl-left-margin">2. </span><span
+class="csl-right-inline">Feynman RP, Vernon Jr. FL. The theory of a
+general quantum system interacting with a linear dissipative system.
+Annals of Physics. 1963;24: 118–173.
+doi:[10.1016/0003-4916(63)90068-X](https://doi.org/10.1016/0003-4916(63)90068-X)</span>
+
+</div>
+
+<div id="ref-Dirac1953888" class="csl-entry">
+
+<span class="csl-left-margin">3. </span><span
+class="csl-right-inline">Dirac PAM. The lorentz transformation and
+absolute time. Physica. 1953;19: 888–896.
+doi:[10.1016/S0031-8914(53)80099-6](https://doi.org/10.1016/S0031-8914(53)80099-6)</span>
+
+</div>
+
+</div>

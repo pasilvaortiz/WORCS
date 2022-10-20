@@ -22,7 +22,7 @@ author_summary: |
   Add text. Add text. Add text. Add text. Add text. Add text. Add text. Add text.
 
 bibliography: references.bib
-output: rticles::plos_article
+output: github_document
 # plos.csl can be download and used locally
 csl: http://www.zotero.org/styles/plos
 knit: worcs::cite_all
